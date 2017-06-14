@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+		xmlns:android="http://schemas.android.com/apk/res/android"
+           id="cordova-plugin-mobilevision"
+      version="0.1.0">
+    <name>Mobilevision</name>
+
+	<author>Denis Apparicio</author>
+
+	<license>MIT</license>
+
+	<description>
+		This plugin gives you the ability to Face Tracker (Mobilevision)
+	</description>
+
+    <js-module src="www/mobilevision.js" name="Mobilevision">
+        <!--<clobbers target="cordova.plugins.mobilevision" />-->
+        <clobbers target="Mobilevision" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <framework src="com.android.support:design:24.1.1+" />
+        <framework src="com.google.android.gms:play-services-vision:9.4.0+" />
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Mobilevision">
+                <param name="android-package" value="org.apache.cordova.mobilevision.MobilevisionPlugin"/>
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.CAMERA" />
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity android:name="org.apache.cordova.mobilevision.FaceTrackerActivity" android:theme="@style/Theme.AppCompat.NoActionBar" android:screenOrientation="fullSensor" />
+        </config-file>
+        
+        <source-file src="src/android/CameraSourcePreview.java" target-dir="src/org/apache/cordova/mobilevision" />
+        <source-file src="src/android/FaceGraphic.java" target-dir="src/org/apache/cordova/mobilevision" />
+        <source-file src="src/android/FaceTrackerActivity.java" target-dir="src/org/apache/cordova/mobilevision" />
+        <source-file src="src/android/GraphicOverlay.java" target-dir="src/org/apache/cordova/mobilevision" />
+        <source-file src="src/android/MobilevisionPlugin.java" target-dir="src/org/apache/cordova/mobilevision" />
+        <source-file src="src/android/layout/mobilevision_main.xml" target-dir="res/layout"/>
+
+     </platform>
+
+     <!-- ios -->
+     <platform name="ios">
+         <config-file target="config.xml" parent="/*">
+             <feature name="Mobilevision">
+                 <param name="ios-package" value="Mobilevision" />
+             </feature>
+         </config-file>
+
+         <header-file src="src/ios/Mobilevision.h" />
+         <source-file src="src/ios/Mobilevision.m" />
+
+	 <framework src="UIKit.framework" weak="true" />
+
+     </platform>
+
+</plugin>

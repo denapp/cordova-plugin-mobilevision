@@ -1,0 +1,22 @@
+{
+  "name": "cordova-plugin-mobilevision",
+  "version": "0.1.0",
+  "description": "Cordova Mobile Vision Plugin",
+  "cordova": {
+    "id": "cordova-plugin-mobilevision",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "keywords": [
+    "cordova"
+  ],
+  "engines": [
+    {
+      "name": "cordova-ios",
+      "version": ">=3.6.0"
+    }
+  ],
+  "author": "Denis Apparicio",
+  "license": "MIT"
+}
