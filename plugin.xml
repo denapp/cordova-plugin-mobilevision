@@ -4,19 +4,23 @@
 		xmlns:android="http://schemas.android.com/apk/res/android"
            id="cordova-plugin-mobilevision"
       version="0.1.0">
+
     <name>Mobilevision</name>
+    <license>MIT</license>
+    <keywords>Mobile Vision</keywords>
 
 	<author>Denis Apparicio</author>
-
-	<license>MIT</license>
 
 	<description>
 		This plugin gives you the ability to Face Tracker (Mobilevision)
 	</description>
+    
+    <repo>https://github.com/denapp/cordova-plugin-mobilevision.git</repo>
+    <issue>https://github.com/denapp/cordova-plugin-mobilevision/issues</issue>
 
     <js-module src="www/mobilevision.js" name="Mobilevision">
-        <!--<clobbers target="cordova.plugins.mobilevision" />-->
-        <clobbers target="Mobilevision" />
+        <clobbers target="cordova.plugins.mobilevision" />-->
+        <!--<clobbers target="Mobilevision" />-->
     </js-module>
 
     <!-- android -->
