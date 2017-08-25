@@ -119,6 +119,9 @@ public class CameraSourcePreview extends ViewGroup {
             }
         }
 
+        width = Math.min(width, height);
+        height = Math.min(width, height);
+
         // Swap width and height sizes when in portrait, since it will be rotated 90 degrees
         if (isPortraitMode()) {
             int tmp = width;
@@ -140,7 +143,10 @@ public class CameraSourcePreview extends ViewGroup {
         }
 
         for (int i = 0; i < getChildCount(); ++i) {
+            //ORIGINAL
             getChildAt(i).layout(0, 0, childWidth, childHeight);
+            // FULL SIZE
+            // getChildAt(i).layout(0, 0, width, height);
         }
 
         try {

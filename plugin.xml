@@ -18,26 +18,31 @@
     <repo>https://github.com/denapp/cordova-plugin-mobilevision.git</repo>
     <issue>https://github.com/denapp/cordova-plugin-mobilevision/issues</issue>
 
-    <js-module src="www/mobilevision.js" name="Mobilevision">
-        <clobbers target="cordova.plugins.mobilevision" />-->
-        <!--<clobbers target="Mobilevision" />-->
-    </js-module>
 
+   <js-module src="www/mobilevision.js" name="Mobilevision">
+        <clobbers target="cordova.plugins.mobilevision" />
+    </js-module>
+    
     <!-- android -->
     <platform name="android">
+       <!-- deja ajoute par le plugin camera 
+        <framework src="com.android.support:support-v4:24.1.1+" />
+       -->
         <framework src="com.android.support:design:24.1.1+" />
-        <framework src="com.google.android.gms:play-services-vision:9.4.0+" />
-
+        <framework src="com.google.android.gms:play-services-vision:+" />
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="Mobilevision">
                 <param name="android-package" value="org.apache.cordova.mobilevision.MobilevisionPlugin"/>
             </feature>
         </config-file>
         <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.hardware.camera" />
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
             <uses-permission android:name="android.permission.CAMERA" />
         </config-file>
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
-            <activity android:name="org.apache.cordova.mobilevision.FaceTrackerActivity" android:theme="@style/Theme.AppCompat.NoActionBar" android:screenOrientation="fullSensor" />
+            <activity android:name="org.apache.cordova.mobilevision.FaceTrackerActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.NoActionBar" />
         </config-file>
         
         <source-file src="src/android/CameraSourcePreview.java" target-dir="src/org/apache/cordova/mobilevision" />
@@ -46,6 +51,8 @@
         <source-file src="src/android/GraphicOverlay.java" target-dir="src/org/apache/cordova/mobilevision" />
         <source-file src="src/android/MobilevisionPlugin.java" target-dir="src/org/apache/cordova/mobilevision" />
         <source-file src="src/android/layout/mobilevision_main.xml" target-dir="res/layout"/>
+        <source-file src="src/android/drawable/camera_off.xml" target-dir="res/drawable"/>
+        <source-file src="src/android/drawable/camera.xml" target-dir="res/drawable"/>
 
      </platform>
 
